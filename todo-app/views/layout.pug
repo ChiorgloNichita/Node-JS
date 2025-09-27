@@ -1,0 +1,15 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title #{title || appName}
+    link(rel="stylesheet", href="/style.css")
+  body
+    header.container
+      nav.nav
+        a(href="/") Главная
+        a(href="/new") Новая задача
+        a(href="/about") О нас
+    main.container
+      block content

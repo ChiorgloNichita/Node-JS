@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+
+  if todos.length
+    ul.todo-list
+      each todo in todos
+        li
+          form(action=`/${todo.id}/toggle`, method="post", style="display:inline")
+            button(type="submit") #{todo.completed ? '✅' : '⬜'}
+          |  #{todo.title}
+          form(action=`/${todo.id}/delete`, method="post", style="display:inline;margin-left:8px")
+            button(type="submit") Удалить
+  else
+    p.empty Пока задач нет.
+  p
+    a.btn(href="/new")  Добавить задачу

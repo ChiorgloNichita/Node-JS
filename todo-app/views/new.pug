@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+
+  form(action="/new", method="post", class="form")
+    input(type="text", name="title", placeholder="Что нужно сделать?", required)
+    button(type="submit") Добавить
