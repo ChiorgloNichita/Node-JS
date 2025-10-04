@@ -8,11 +8,17 @@ block content
       each todo in todos
         li
           form(action=`/${todo.id}/toggle`, method="post", style="display:inline")
-            button(type="submit") #{todo.completed ? '✅' : '⬜'}
+            button(
+              type="submit",
+              style=`background:${todo.completed ? '#28a745' : '#6c757d'};color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;`
+            ) #{todo.completed ? 'Сделано' : 'Не сделано'}
           |  #{todo.title}
           form(action=`/${todo.id}/delete`, method="post", style="display:inline;margin-left:8px")
-            button(type="submit") Удалить
+            button(
+              type="submit",
+              style="background:#dc3545;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;"
+            ) Удалить
   else
     p.empty Пока задач нет.
   p
-    a.btn(href="/new")  Добавить задачу
+    a.btn(href="/new", style="display:inline-block;background:#007bff;color:white;text-decoration:none;padding:10px 16px;border-radius:8px;margin-top:16px;") Добавить задачу
