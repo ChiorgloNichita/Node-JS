@@ -9,7 +9,6 @@ const app = express();
 
 app.locals.appName = process.env.APP_NAME || 'TodoApp';
 
-// 2) шаблонизатор Pug
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
