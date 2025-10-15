@@ -181,11 +181,14 @@ sudo mv /tmp/*.html /usr/share/nginx/html/
 ls -l /usr/share/nginx/html
 ```
 
-✅ Все файлы на месте и открываются по ссылкам:
+Все файлы на месте и открываются по ссылкам:
 
 - [http://18.194.110.206/index.html](http://18.194.110.206/index.html)
+  ![alt text](images/image9.png)
 - [http://18.194.110.206/about.html](http://18.194.110.206/about.html)
+  ![alt text](images/image-10.png)
 - [http://18.194.110.206/contact.html](http://18.194.110.206/contact.html)
+  ![alt text](images/image-11.png)
 
 **Ответ:**
 Команда `scp` копирует файлы между локальным компьютером и сервером через защищённое SSH-соединение.
@@ -228,3 +231,39 @@ scp: dest open "/usr/share/nginx/html/index.html": Permission denied
    ssh -i D:\user\nikita-keypair.pem ec2-user@18.194.110.206
    sudo mv /tmp/*.html /usr/share/nginx/html/
    ```
+
+## Задание 7 — Завершение работы
+
+Для экономии ресурсов **Free Tier** инстанс был **остановлен**:
+
+```bash
+aws ec2 stop-instances --instance-ids <instance_id>
+```
+
+или вручную через консоль **EC2**:
+**Instance state → Stop instance**
+
+Разница между Stop и Terminate:
+
+Stop — временно выключает машину, сохраняя данные.
+Terminate — полностью удаляет инстанс и диск.
+
+## Вывод
+
+В ходе лабораторной работы были выполнены следующие шаги:
+
+- Создан и настроен **EC2-инстанс** на AWS
+- Установлены **Nginx** и **PHP-FPM**
+- Развёрнуты **статический и динамический веб-сайты**
+- Настроен **SSH-доступ** и **система бюджетирования (Zero-Spend Budget)**
+- Изучены принципы **мониторинга** и **логирования** в AWS
+
+**Результат:**
+Получен практический опыт администрирования серверов и развертывания веб-приложений в облачной инфраструктуре **Amazon Web Services (AWS)**.
+
+**Список использованных источников:**
+
+1. [https://aws.amazon.com/ru/](https://aws.amazon.com/ru/) — официальный сайт Amazon Web Services.
+2. [https://docs.aws.amazon.com/](https://docs.aws.amazon.com/) — официальная документация AWS.
+3. [https://docs.nginx.com/](https://docs.nginx.com/) — документация по веб-серверу Nginx.
+4. [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html) — руководство по подключению к экземпляру EC2 через SSH.
