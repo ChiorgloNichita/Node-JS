@@ -26,7 +26,7 @@ router.post("/categories", createCategory);
 router.put("/categories/:id", updateCategory);
 router.delete("/categories/:id", deleteCategory);
 
-// Задачи
+
 router.get("/todos", getTodos);
 router.get("/todos/:id", getTodoById);
 router.post("/todos", createTodo);

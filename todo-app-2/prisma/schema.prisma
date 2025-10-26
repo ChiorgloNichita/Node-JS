@@ -8,19 +8,22 @@ datasource db {
 }
 
 model Category {
-  id         Int      @id @default(autoincrement()) // SERIAL (PK)
-  name       String   @db.VarChar(100)              // VARCHAR(100)
-  created_at DateTime @default(now())               // TIMESTAMP
-  updated_at DateTime @updatedAt                    // TIMESTAMP
-  todos      Todo[]                                // связь 1:N
+  id         Int      @id @default(autoincrement()) 
+  name       String   @db.VarChar(100)              
+  created_at DateTime @default(now())              
+  created_at DateTime @default(now())               
+  created_at DateTime @default(now())               
+  created_at DateTime @default(now())               
+  updated_at DateTime @updatedAt                    
+  todos      Todo[]                              
 }
 
 model Todo {
-  id          String    @id @default(uuid())        // UUID (PK)
-  title       String    @db.Text                    // TEXT (2–120 символов)
-  completed   Boolean   @default(false)             // BOOLEAN default false
-  category_id Int?                                   // внешний ключ
-  due_date    DateTime?                             // TIMESTAMP (optional)
+  id          String    @id @default(uuid())       
+  title       String    @db.Text                    
+  completed   Boolean   @default(false)            
+  category_id Int?                                   
+  due_date    DateTime?                            
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
   category    Category? @relation(fields: [category_id], references: [id], onDelete: SetNull)
