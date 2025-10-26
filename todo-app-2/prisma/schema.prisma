@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id         Int      @id @default(autoincrement()) // SERIAL (PK)
+  name       String   @db.VarChar(100)              // VARCHAR(100)
+  created_at DateTime @default(now())               // TIMESTAMP
+  updated_at DateTime @updatedAt                    // TIMESTAMP
+  todos      Todo[]                                // связь 1:N
+}
+
+model Todo {
+  id          String    @id @default(uuid())        // UUID (PK)
+  title       String    @db.Text                    // TEXT (2–120 символов)
+  completed   Boolean   @default(false)             // BOOLEAN default false
+  category_id Int?                                   // внешний ключ
+  due_date    DateTime?                             // TIMESTAMP (optional)
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  category    Category? @relation(fields: [category_id], references: [id], onDelete: SetNull)
+}
