@@ -1,0 +1,62 @@
+import prisma from "../models/db.js";
+
+// GET /api/categories
+export const getCategories = async (_req, res) => {
+  try {
+    const categories = await prisma.category.findMany({ orderBy: { id: "asc" } });
+    res.json(categories);
+  } catch (err) {
+    res.status(500).json({ error: "Ошибка при получении категорий" });
+  }
+};
+
+// GET /api/categories/:id
+export const getCategoryById = async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    const category = await prisma.category.findUnique({ where: { id } });
+    if (!category) return res.status(404).json({ error: "Категория не найдена" });
+    res.json(category);
+  } catch {
+    res.status(500).json({ error: "Ошибка при получении категории" });
+  }
+};
+
+// POST /api/categories
+export const createCategory = async (req, res) => {
+  try {
+    const { name } = req.body;
+    if (!name || name.trim().length < 2)
+      return res.status(400).json({ error: "Название слишком короткое" });
+    const category = await prisma.category.create({ data: { name: name.trim() } });
+    res.status(201).json(category);
+  } catch {
+    res.status(500).json({ error: "Ошибка при создании категории" });
+  }
+};
+
+// PUT /api/categories/:id
+export const updateCategory = async (req, res) => {
+  const id = Number(req.params.id);
+  const { name } = req.body;
+  try {
+    const category = await prisma.category.update({
+      where: { id },
+      data: { name: name.trim() },
+    });
+    res.json(category);
+  } catch {
+    res.status(404).json({ error: "Категория не найдена" });
+  }
+};
+
+// DELETE /api/categories/:id
+export const deleteCategory = async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    await prisma.category.delete({ where: { id } });
+    res.status(204).send();
+  } catch {
+    res.status(404).json({ error: "Категория не найдена" });
+  }
+};
