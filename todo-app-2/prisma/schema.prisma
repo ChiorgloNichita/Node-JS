@@ -8,22 +8,19 @@ datasource db {
 }
 
 model Category {
-  id         Int      @id @default(autoincrement()) 
-  name       String   @db.VarChar(100)              
-  created_at DateTime @default(now())              
-  created_at DateTime @default(now())               
-  created_at DateTime @default(now())               
-  created_at DateTime @default(now())               
-  updated_at DateTime @updatedAt                    
-  todos      Todo[]                              
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(100)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  todos      Todo[]
 }
 
 model Todo {
-  id          String    @id @default(uuid())       
-  title       String    @db.Text                    
-  completed   Boolean   @default(false)            
-  category_id Int?                                   
-  due_date    DateTime?                            
+  id          String    @id @default(uuid())
+  title       String    @db.VarChar(120)
+  completed   Boolean   @default(false)
+  category_id Int?
+  due_date    DateTime?
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
   category    Category? @relation(fields: [category_id], references: [id], onDelete: SetNull)

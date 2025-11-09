@@ -11,7 +11,7 @@ CREATE TABLE "Category" (
 -- CreateTable
 CREATE TABLE "Todo" (
     "id" TEXT NOT NULL,
-    "title" TEXT NOT NULL,
+    "title" VARCHAR(120) NOT NULL,
     "completed" BOOLEAN NOT NULL DEFAULT false,
     "category_id" INTEGER,
     "due_date" TIMESTAMP(3),
