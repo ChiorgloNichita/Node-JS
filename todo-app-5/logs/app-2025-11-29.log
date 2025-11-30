@@ -1,0 +1,27 @@
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"\nInvalid `prisma.todo.create()` invocation:\n\n\nForeign key constraint violated on the (not available)"}
+{"level":"error","message":"Доступ запрещён"}
+{"level":"error","message":"Пользователь уже существует"}
+{"level":"error","message":"Неверный email или пароль"}
+{"level":"error","message":"\nInvalid `prisma.todo.create()` invocation:\n\n\nForeign key constraint violated on the (not available)"}
+{"level":"error","message":"\nInvalid `prisma.todo.create()` invocation:\n\n\nForeign key constraint violated on the (not available)"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Задача не найдена"}
+{"level":"error","message":"Маршрут /api/skjdfhsdkjfh не найден"}
+{"level":"error","message":"Задача не найдена"}
+{"level":"error","message":"Доступ запрещён"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Маршрут /api/unknown не найден"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"Ошибка валидации данных"}
+{"level":"error","message":"\nInvalid `prisma.todo.create()` invocation:\n\n\nForeign key constraint violated on the (not available)"}
+{"level":"error","message":"\nInvalid `prisma.todo.create()` invocation:\n\n\nForeign key constraint violated on the (not available)"}
+{"level":"error","message":"Маршрут /api/sentry-test не найден"}
+{"level":"error","message":"Маршрут /api/sentry-test не найден"}
+{"level":"error","message":"Маршрут /api/sentry-test не найден"}

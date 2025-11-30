@@ -1,4 +1,3 @@
-// middleware/auth.js
 import jwt from 'jsonwebtoken';
 import AppError from '../utils/AppError.js';
 
@@ -14,7 +13,6 @@ export const auth = (req, _res, next) => {
 
   try {
     const payload = jwt.verify(token, JWT_SECRET);
-    // Приводим к формату, который ожидают контроллеры (id, role, username)
     req.user = {
       id: payload.userId,
       role: payload.role,

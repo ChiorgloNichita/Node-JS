@@ -1,4 +1,3 @@
-// routes/api.js
 import express from 'express';
 import { body, param } from 'express-validator';
 
@@ -24,7 +23,6 @@ import {
 
 const router = express.Router();
 
-// ----- КАТЕГОРИИ (только admin) -----
 router.get('/categories', auth, isAdmin, getCategories);
 
 router.get(
@@ -64,7 +62,6 @@ router.delete(
   deleteCategory,
 );
 
-// ----- TODO (авторизованный пользователь) -----
 router.get('/todos', auth, getTodos);
 
 router.get(
